@@ -33,7 +33,7 @@ The Infoblox WAPI is an interface based on REST (REpresentational State Transfer
 #### Installation
 ##### Direct Installation
 - [Setup] Download the Infoblox-Swagger-WAPI repository and host it on a server (localhost/domain).
-- [Access] Access this Swagger definition by http://<Host IP-Address/domain>/swagger-ui/dist/home.php  
+- [Access] Access this Swagger definition by http://<Host IP-Address/domain>/infoblox-swagger-ui/dist/home.php  
 
 ##### Docker
 You can pull a pre-built docker image of the Infoblox-Swagger-UI directly from Docker Hub:
