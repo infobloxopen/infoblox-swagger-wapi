@@ -443,7 +443,7 @@ def create_introduction(doc,ip):
 	doc.writelines(license)
 	contact = ["\tcontact:\n","\t\tname: \"Vedant\"\n", "\t\temail: \"vsethia@infoblox.com\"\n\n"]
 	doc.writelines(contact)
-	doc.write("servers:\n\t- url: \'https://{}\' \n\t- url: \'https://10.196.205.40\' \n\n".format(ip))
+	doc.write("servers:\n\t- url: \'https://{}\' \n\t- url: \'Grid Master IP-Address\' \n\n".format(ip))  #update the IP-Address here
 
 
 #creates the paths section for WAPI Swagger definition
@@ -536,7 +536,7 @@ def create_components(doc):
 
 #main Function
 def main():
-	ip = '10.196.205.43'
+	ip = '127.0.0.1'  #enter the IP-Address of Grid Master 
 	doc = open("swagger.yaml","w")
 
 	create_introduction(doc,ip)
