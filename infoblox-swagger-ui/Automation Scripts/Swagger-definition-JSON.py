@@ -398,7 +398,7 @@ def create_components(doc,main_dict):
 
 #main function
 def main():
-	ip = ['10.196.205.42','10.296.205.40']
+	ip = ['127.0.0.1'] #enter the IP of GM here
 	ver = ["v2.7","v2.8","v2.9","v2.10","v2.11"]
 	global wapi_version
 	for wapi_version in ver:
