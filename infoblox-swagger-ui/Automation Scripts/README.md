@@ -6,7 +6,7 @@
 -----------
 
 
-##Automation Scripts
+## Automation Scripts
 These python scripts automate the process of generation of Open-API Specification for Infoblox WAPIs
 
 Definition can be generated in two formats:

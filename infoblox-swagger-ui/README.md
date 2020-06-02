@@ -33,24 +33,25 @@ The Infoblox WAPI is an interface based on REST (REpresentational State Transfer
 #### Installation
 ##### Direct Installation
 - [Setup] Download the Infoblox-Swagger-WAPI repository and host it on a server (localhost/domain).
-- [Access] Access this Swagger definition by http://<Host IP-Address/domain>/swagger-ui/dist/home.php  
+- [Access] Access this Swagger definition by http://<Host IP-Address/domain>/infoblox-swagger-ui/dist/home.php  
 
 ##### Docker
 You can pull a pre-built docker image of the Infoblox-Swagger-UI directly from Docker Hub:
 
-docker pull vsethia/infoblox-wapi-swagger:v2
-docker run -p <PORT NO>:80 vsethia/infoblox-wapi-swagger:v2
+    docker pull vsethia/infoblox-wapi-swagger:v2
+    docker run -p <PORT NO>:80 vsethia/infoblox-wapi-swagger:v2
 
 This will start apache with Swagger UI on the specified PORT NO.
 
 You can also create your own image using the Dockerfile given.
 
-docker build Dockerfile -t <username>/<project-name>:<version>
+    docker build Dockerfile -t <username>/<project-name>:<version>
 or
-docker build . -t <username>/<project-name>:<version>
+    
+    docker build . -t <username>/<project-name>:<version>
 
 
-#### Instructions
+## Instructions
 After accessing "home.php":
 - Enter the Grid Master IP-Address/FQDN on homepage.
 - Select the WAPI version.
