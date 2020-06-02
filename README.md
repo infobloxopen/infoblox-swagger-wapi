@@ -38,8 +38,8 @@ The Infoblox WAPI is an interface based on REST (REpresentational State Transfer
 ##### Docker
 You can pull a pre-built docker image of the Infoblox-Swagger-UI directly from Docker Hub:
 
-docker pull vsethia/infoblox-wapi-swagger:v2
-docker run -p <PORT NO>:80 vsethia/infoblox-wapi-swagger:v2
+    docker pull vsethia/infoblox-wapi-swagger:v2
+    docker run -p <PORT NO>:80 vsethia/infoblox-wapi-swagger:v2
 
 This will start apache with Swagger UI on the specified PORT NO.
 
