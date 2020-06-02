@@ -4,7 +4,7 @@
 #    For any issues/suggestions please write to vsethia@infoblox.com, kvasudevan@infoblox.com     #
 ###################################################################################################
 
-#Automation script for for creating a YAML Open-API Specification file for Infoblox REST APIs
+#Automation script for for creating a JSON Open-API Specification file for Infoblox REST APIs
 
 #libraries
 import requests
