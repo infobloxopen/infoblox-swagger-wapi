@@ -1,0 +1,4 @@
+---
+urls: "[{url: \"dns.json\", name: \"DNS\"},{url: \"dist/dhcp.json\", name: \"DHCP\"}]"
+dom_id: "#swagger-ui"
+validatorUrl: "https://validator.swagger.io/validator"

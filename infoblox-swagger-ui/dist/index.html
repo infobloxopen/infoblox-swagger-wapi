@@ -1,0 +1,63 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Infoblox WAPI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+      .topbar-wrapper img{
+        content:url('https://surveymonkey-assets.s3.amazonaws.com/survey/5898025/23ff0552-7a05-4103-96d1-08c36f01dc74.png')
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js"> </script>
+    <script src="./swagger-ui-standalone-preset.js"> </script>
+    <script>
+    window.onload = function() {
+      // Begin Swagger UI call region
+      const ui = SwaggerUIBundle({
+        urls: [{url: "dhcp.json", name: "DHCP"},{url: "discovery.json" , name: "Discovery"},{url: "dns.json", name: "DNS"},{url: "dtc.json", name: "DNS Traffic Control"},{url: "grid.json" , name: "Grid"},{url: "ipam.json", name: "IPAM"},{url: "microsoft.json" , name: "Microsoft"},{url: "miscellaneous.json" , name: "Miscellaneous"},{url: "outbound.json" , name: "Outbound"},{url: "parental_control.json" , name: "Parental Control"},{url: "rpz.json", name: "Response Policy Zones"},{url: "threat_analytics.json" , name: "Threat Analytics"},{url: "users.json" , name: "Users"},{url: "vlan.json" , name: "VLAN"}],
+        url: "swagger.json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+      // End Swagger UI call region
+
+      window.ui = ui
+    }
+  </script>
+  </body>
+</html>
