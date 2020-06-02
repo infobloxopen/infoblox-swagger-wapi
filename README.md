@@ -45,9 +45,10 @@ This will start apache with Swagger UI on the specified PORT NO.
 
 You can also create your own image using the Dockerfile given.
 
-  docker build Dockerfile -t <username>/<project-name>:<version>
+    docker build Dockerfile -t <username>/<project-name>:<version>
 or
-  docker build . -t <username>/<project-name>:<version>
+
+    docker build . -t <username>/<project-name>:<version>
 
 
 ## Instructions
