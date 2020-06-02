@@ -4,6 +4,9 @@
 #    For any issues/suggestions please write to vsethia@infoblox.com, kvasudevan@infoblox.com     #
 ###################################################################################################
 
+#Automation script for for creating a YAML Open-API Specification file for Infoblox REST APIs
+
+#libraries
 import requests
 import json
 
@@ -190,6 +193,7 @@ def create_delete_definition(doc, obj, tag,dict_val):
 	dict_val["delete"]["security"] = [{"basicAuth" : []}]
 
 
+#definition for Function calls
 def create_post_function_definition(doc,obj,tag,parameters,dict_val):
 	name = []
 	for i in parameters:
@@ -235,7 +239,7 @@ def create_post_function_definition(doc,obj,tag,parameters,dict_val):
 
 
 
-
+#creates the schema for all the objects
 def create_schema_reference(doc,parameters_dict,schema_dict):
 	for key in parameters_dict:
 		head = key
@@ -280,6 +284,7 @@ def create_schema_reference(doc,parameters_dict,schema_dict):
 		schema_dict[head] = {"type" : "object","properties" : temp_dict}
 
 
+#creates the introduction section for WAPI Swagger definition
 def create_introduction(doc,ip,main_dict):
 	main_dict["openapi"] = "3.0.0"
 	main_dict["info"] = {"description":"Sample WAPI Documentation","version":""+wapi_version+"","title":"Infoblox WAPI"}
@@ -291,16 +296,13 @@ def create_introduction(doc,ip,main_dict):
 	#	main_dict["servers"].append({"url":"https://"+i})
 
 
+#creates the paths section for WAPI Swagger definition
 def create_path(doc,ip,main_dict):
 	main_dict["paths"] = {}
 	schema = get_wapi_call(ip[0],'admin','infoblox','?_schema')
 	list_objects = schema['supported_objects']      #list of all supported objects as a list 
 
-	temp = ["zone_auth","record:a","record:ptr","record:host"]
-	#temp = ["range","lease"]
-	#temp = ["network","networkview","fixedaddress"]
-	#temp = ["dtc:lbdn","dtc:pool","dtc:server"]
-	#temp = ["grid","member"]
+	temp = []
 	rpz = ["allrpzrecords", "orderedresponsepolicyzones", "record:rpz:a", "record:rpz:aaaa", "record:rpz:aaaa:ipaddress", "record:rpz:a:ipaddress", "record:rpz:cname", "record:rpz:cname:clientipaddress", "record:rpz:cname:clientipaddressdn", "record:rpz:cname:ipaddress", "record:rpz:cname:ipaddressdn", "record:rpz:mx", "record:rpz:naptr", "record:rpz:ptr", "record:rpz:srv", "record:rpz:txt", "outbound:cloudclient", "taxii"]
 	dns = ["grid:dns", "member:dns", "allrecords", "bulkhost", "record:host", "record:a", "record:aaaa", "record:alias", "record:caa", "record:cname", "record:dhcid", "record:dname", "record:dnskey", "record:ds", "record:dtclbdn", "record:host_ipv4addr", "record:host_ipv6addr", "record:mx", "record:naptr", "record:ns", "record:nsec", "record:nsec3", "record:nsec3param", "record:ptr", "record:rrsig", "record:srv", "record:tlsa", "record:txt", "record:unknown", "recordnamepolicy", "ruleset", "sharedrecord:a", "sharedrecord:aaaa", "sharedrecord:cname", "sharedrecord:mx", "sharedrecord:srv", "sharedrecord:txt", "sharedrecordgroup", "view", "zone_auth", "zone_auth_discrepancy", "zone_delegated", "zone_forward" , "zone_rp", "zone_stub", "nsgroup", "nsgroup:delegation", "nsgroup:forwardingmember", "nsgroup:stubmember", "nsgroup:forwardstubserver", "ddns:principalcluster", "ddns:principalcluster:group", "dns64group", "hostnamerewritepolicy", "bulkhostnametemplate", "scavengingtask", "view"]
 	parental_control = ["parentalcontrol:avp", "parentalcontrol:blockingpolicy", "parentalcontrol:ipspacediscriminator", "parentalcontrol:subscriber", "parentalcontrol:subscriberrecord", "parentalcontrol:subscribersite"]
@@ -386,7 +388,7 @@ def create_path(doc,ip,main_dict):
 		else:
 			continue	
 
-
+#creates the components section for WAPI Swagger definition (security and schema)
 def create_components(doc,main_dict):
 	main_dict["components"] = {"securitySchemes":{"basicAuth":{"type":"http","scheme":"basic"}}}
 	schema_dict = {}
@@ -394,7 +396,7 @@ def create_components(doc,main_dict):
 	main_dict["components"]["schemas"] = schema_dict
 
 
-
+#main function
 def main():
 	ip = ['10.196.205.42','10.296.205.40']
 	ver = ["v2.7","v2.8","v2.9","v2.10","v2.11"]
