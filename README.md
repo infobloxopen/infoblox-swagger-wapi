@@ -50,7 +50,7 @@ or
 docker build . -t <username>/<project-name>:<version>
 
 
-#### Instructions
+## Instructions
 After accessing "home.php":
 - Enter the Grid Master IP-Address/FQDN on homepage.
 - Select the WAPI version.
