@@ -53,7 +53,7 @@ or
 
 ## Instructions
 After accessing "home.php":
-- Enter the Grid Master IP-Address/FQDN and corrosponding credentials on homepage.
+- Enter the Grid Master IP-Address/FQDN and corresponding credentials on the homepage.
 - Select the WAPI version.
 - Click on the button to view the Swagger-UI
 
