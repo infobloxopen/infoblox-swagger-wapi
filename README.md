@@ -2,7 +2,7 @@
 
 
 -----------
-                            	      Copyright 2020                                            
+                            	      Copyright 2021                                            
                       	Author: Vedant Sethia <vsethia@infoblox.com>                         
   		For any issues/suggestions please write to vsethia@infoblox.com , kvasudevan@infoblox.com           
 
@@ -38,8 +38,8 @@ The Infoblox WAPI is an interface based on REST (REpresentational State Transfer
 ##### Docker
 You can pull a pre-built docker image of the Infoblox-Swagger-UI directly from Docker Hub:
 
-    docker pull vsethia/infoblox-wapi-swagger:v2
-    docker run -p <PORT NO>:80 vsethia/infoblox-wapi-swagger:v2
+    docker pull vsethia/infoblox-wapi-swagger:v3
+    docker run -p <PORT NO>:80 vsethia/infoblox-wapi-swagger:v3
 
 This will start apache with Swagger UI on the specified PORT NO.
 
@@ -55,8 +55,13 @@ or
 After accessing "home.php":
 - Enter the Grid Master IP-Address/FQDN and corresponding credentials on the homepage.
 - Select the WAPI version.
-- Click on the button to view the Swagger-UI
+- Click on the button to view the Swagger-UI.
 
+## Maintainence
+Date: April 6, 2021 
+- Added support for WAPI version v2.12 and v2.11.1 released along with NIOS 8.6.
+- Fixed bugs related to SSL verification during documentation generation.
+- Automated the defination generation for WAPI v2.7-v2.12.
 
 
 
