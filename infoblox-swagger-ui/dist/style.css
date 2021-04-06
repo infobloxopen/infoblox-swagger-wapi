@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .info{
+    width:60%;
+    padding: 30px;
+  
+  
+  }
+  
+  .top-container {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .header {
+    padding: 10px 16px;
+    background: #333;
+    color: #f1f1f1;
+  }
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 97.4%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  select {
+    width: 30%;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5C9F3A;
+    color: #f1f1f1;
+  
+  }
+  select:hover {
+  background-color:#f1c1a1;
+  color:#000000;
+  }
+  
+  input[type=submit] {
+    background-color: #4C50AF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #50AF4C;
+  }
+  
+  
+  fieldset {
+    padding: 1em;
+    font:80%/1 sans-serif;
+    width: 40%;
+    }
+  
+  .information{
+    padding: 1em;
+    font:80%/1 sans-serif;
+    width: 100%;
+    height: auto;
+  
+  }
+  label {
+    float:left;
+    width:45%;
+    margin-right:0.5em;
+    padding-top:0.2em;
+    text-align:right;
+    font-weight:bold;
+    }
+  a:link, a:visited {
+    background-color: #4c50AF;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: #50AF4C;
+  }
+  
+  label{
+   font-size: 14px;
+  }
