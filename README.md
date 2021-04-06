@@ -57,7 +57,7 @@ After accessing "home.php":
 - Select the WAPI version.
 - Click on the button to view the Swagger-UI.
 
-## Maintainence
+## Maintenance
 Date: April 6, 2021 
 - Added support for WAPI version v2.12 and v2.11.1 released along with NIOS 8.6.
 - Fixed bugs related to SSL verification during documentation generation.
