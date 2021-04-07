@@ -61,7 +61,7 @@ After accessing "home.php":
 Date: April 6, 2021 
 - Added support for WAPI version v2.12 and v2.11.1 released along with NIOS 8.6.
 - Fixed bugs related to SSL verification during documentation generation.
-- Automated the defination generation for WAPI v2.7-v2.12.
+- Automated the definition generation for WAPI v2.7-v2.12.
 
 
 
