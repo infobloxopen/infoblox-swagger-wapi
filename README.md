@@ -1,10 +1,10 @@
-# <img src="https://info.infoblox.com/rs/240-PTK-751/images/InfoBloxLogo.png" width="300">
+# <img src="https://infoblox.b-cdn.net/wp-content/uploads/infoblox-logo-new.svg" width="300">
 
 
 -----------
                             	      Copyright 2021                                            
                       	Author: Vedant Sethia <vsethia@infoblox.com>                         
-  		For any issues/suggestions please write to vsethia@infoblox.com , kvasudevan@infoblox.com           
+  		For any issues/suggestions please write to kvasudevan@infoblox.com           
 
 -----------
 
@@ -27,7 +27,6 @@ The Infoblox WAPI is an interface based on REST (REpresentational State Transfer
 ## Documentation
 #### Pre-requisites
 - Host machine with python 3.0+ and PHP 4.0+ (only for direct installation)
-- CORS Plugin
 - Connectivity between Grid master and Host
 
 #### Installation
@@ -52,6 +51,19 @@ or
 
 
 ## Instructions
+Launch a browser without CORS enforcement (The Infoblox Grid Master does not allow API calls from third party websites like this one)
+Windows:
+
+    C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --ignore-certificate-errors --user-data-dir=~/chromeTemp
+
+Mac OS:
+
+    open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security --ignore-certificate-errors
+
+Linux:
+
+    google-chrome --disable-web-security --ignore-certificate-errors
+
 After accessing "home.php":
 - Enter the Grid Master IP-Address/FQDN and corresponding credentials on the homepage.
 - Select the WAPI version.
