@@ -9,8 +9,8 @@ info:
 		url: https://www.infoblox.com/
 
 	contact:
-		name: "Vedant"
-		email: "vsethia@infoblox.com"
+		name: "Krishna"
+		email: "kvasudevan@infoblox.com"
 
 servers:
 	- url: 'https://10.196.205.43' 
