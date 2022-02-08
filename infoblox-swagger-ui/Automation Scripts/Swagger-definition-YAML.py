@@ -1,7 +1,7 @@
 ###################################################################################################
 #                                      Copyright 2020                                             #
 #                       Author: Vedant Sethia <vsethia@infoblox.com>                              #
-#    For any issues/suggestions please write to vsethia@infoblox.com, kvasudevan@infoblox.com     #
+#    For any issues/suggestions please write to Krishna Vasudevan <kvasudevan@infoblox.com>       #
 ###################################################################################################
 
 #Automation script for for creating a YAML Open-API Specification file for Infoblox REST APIs
