@@ -1,7 +1,7 @@
 ###################################################################################################
 #                                      Copyright 2020                                             #
 #                       Author: Vedant Sethia <vsethia@infoblox.com>                              #
-#    For any issues/suggestions please write to vsethia@infoblox.com, kvasudevan@infoblox.com     #
+#    For any issues/suggestions please write to Krishna Vasudevan <kvasudevan@infoblox.com>       #
 ###################################################################################################
 
 #Automation script for for creating a JSON Open-API Specification file for Infoblox REST APIs
@@ -289,7 +289,7 @@ def create_introduction(doc,ip,main_dict):
 	main_dict["openapi"] = "3.0.0"
 	main_dict["info"] = {"description":"Sample WAPI Documentation","version":""+wapi_version+"","title":"Infoblox WAPI"}
 	main_dict["info"]["license"] = {"name":"Infoblox License","url":"https://www.infoblox.com/"}
-	main_dict["info"]["contact"] = {"name":"Vedant","email":"vsethia@infoblox.com"}
+	main_dict["info"]["contact"] = {"name":"Krishna","email":"kvasudevan@infoblox.com"}
 	#main_dict["servers"] = []
 
 	#for i in ip:
@@ -302,22 +302,21 @@ def create_path(doc,ip,main_dict):
 	schema = get_wapi_call(ip[0],'admin','infoblox','?_schema')
 	list_objects = schema['supported_objects']      #list of all supported objects as a list 
 
-	temp = []
-	rpz = ["allrpzrecords", "orderedresponsepolicyzones", "record:rpz:a", "record:rpz:aaaa", "record:rpz:aaaa:ipaddress", "record:rpz:a:ipaddress", "record:rpz:cname", "record:rpz:cname:clientipaddress", "record:rpz:cname:clientipaddressdn", "record:rpz:cname:ipaddress", "record:rpz:cname:ipaddressdn", "record:rpz:mx", "record:rpz:naptr", "record:rpz:ptr", "record:rpz:srv", "record:rpz:txt", "outbound:cloudclient", "taxii"]
-	dns = ["grid:dns", "member:dns", "allrecords", "bulkhost", "record:host", "record:a", "record:aaaa", "record:alias", "record:caa", "record:cname", "record:dhcid", "record:dname", "record:dnskey", "record:ds", "record:dtclbdn", "record:host_ipv4addr", "record:host_ipv6addr", "record:mx", "record:naptr", "record:ns", "record:nsec", "record:nsec3", "record:nsec3param", "record:ptr", "record:rrsig", "record:srv", "record:tlsa", "record:txt", "record:unknown", "recordnamepolicy", "ruleset", "sharedrecord:a", "sharedrecord:aaaa", "sharedrecord:cname", "sharedrecord:mx", "sharedrecord:srv", "sharedrecord:txt", "sharedrecordgroup", "view", "zone_auth", "zone_auth_discrepancy", "zone_delegated", "zone_forward" , "zone_rp", "zone_stub", "nsgroup", "nsgroup:delegation", "nsgroup:forwardingmember", "nsgroup:stubmember", "nsgroup:forwardstubserver", "ddns:principalcluster", "ddns:principalcluster:group", "dns64group", "hostnamerewritepolicy", "bulkhostnametemplate", "scavengingtask", "view"]
-	parental_control = ["parentalcontrol:avp", "parentalcontrol:blockingpolicy", "parentalcontrol:ipspacediscriminator", "parentalcontrol:subscriber", "parentalcontrol:subscriberrecord", "parentalcontrol:subscribersite"]
-	dtc = ["dtc", "dtc:allrecords" , "dtc:certificate", "dtc:lbdn, dtc:monitor", "dtc:monitor:http", "dtc:monitor:icmp", "dtc:monitor:pdp", "dtc:monitor:sip", "dtc:monitor:snmp",  "dtc:monitor:tcp", "dtc:object", "dtc:pool", "dtc:record:a", "dtc:record:aaaa", "dtc:record:cname", "dtc:record:naptr", "dtc:record:srv", "dtc:server", "dtc:topology", "dtc:topology:label", "dtc:topology:rule"]
-	discovery = ["discovery", "discovery:device", "discovery:devicecomponent", "discovery:deviceinterface", "discovery:deviceneighbor", "discovery:devicesupportbundle", "discovery:diagnostictask", "discovery:gridproperties", "discovery:memberproperties", "discovery:status", "discovery:vrf", "discoverytask", "network_discovery"]
-	dhcp = ["grid:dhcpproperties", "member:dhcpproperties", "dhcp:statistics", "dhcpfailover", "dhcpoptiondefinition", "dhcpoptionspace", "filterfingerprint", "filtermac", "filternac", "filteroption" , "filterrelayagent", "fingerprint", "fixedaddress", "fixedaddresstemplate", "ipv6dhcpoptiondefinition", "ipv6dhcpoptionspace", "ipv6fixedaddress", "ipv6fixedaddresstemplate", "ipv6network", "ipv6networkcontainer", "ipv6networktemplate", "ipv6range", "ipv6rangetemplate", "ipv6sharednetwork", "lease", "macfilteraddress", "network", "networkcontainer", "networktemplate", "networkview", "orderedranges", "range", "rangetemplate", "roaminghost", "sharednetwork" ]
-	ipam = ["ipam:statistics", "ipv4address", "ipv6address", "superhost", "superhostchild"]
-	grid = ["grid", "grid:cloudapi", "grid:cloudapi:cloudstatistics", "grid:cloudapi:tenant", "grid:cloudapi:vm", "grid:cloudapi:vmaddress", "grid:dashboard", "grid:filedistribution", "grid:license_pool", "grid:license_pool_container", "grid:maxminddbinfo", "grid:member:cloudapi", "grid:servicerestart:group", "grid:servicerestart:group:order", "grid:servicerestart:request", "grid:servicerestart:request:changedobject", "grid:servicerestart:status", "grid:threatanalytics", "grid:threatprotection", "grid:x509certificate", "license:gridwide", "mastergrid", "cacertificate", "capacityreport", "csvimporttask", "db_objects", "dbsnapshot", "deleted_objects", "member", "member:filedistribution", "member:license", "member:parentalcontrol", "member:threatanalytics", "member:threatprotection", "namedacl", "natgroup", "restartservicestatus", "rir", "rir:organization", "tftpfiledir", "upgradegroup", "upgradeschedule", "upgradestatus", "vdiscoverytask"]
-	microsoft = ["msserver", "msserver:adsites:domain", "msserver:adsites:site", "msserver:dhcp", "msserver:dns", "mssuperscope"]
-	outbound = ["allendpoints", "ciscoise:endpoint", "dxl:endpoint", "notification:rest:endpoint", "notification:rest:template", "notification:rule", "pxgrid:endpoint", "syslog:endpoint"]
-	users = ["ad_auth_service", "admingroup", "adminrole", "adminuser", "approvalworkflow", "authpolicy", "ldap_auth_service", "localuser:authservice", "bfdtemplate", "certificate:authservice", "ftpuser", "networkuser", "permission", "radius:authservice", "saml:authservice", "snmpuser", "tacacsplus:authservice", "userprofile"]
-	threat_analytics = ["threatanalytics:moduleset", "threatanalytics:whitelist", "threatinsight:cloudclient", "threatprotection:grid:rule", "threatprotection:profile", "threatprotection:profile:rule", "threatprotection:rule", "threatprotection:rulecategory", "threatprotection:ruleset", "threatprotection:ruletemplate", "threatprotection:statistics" ]
-	miscellaneous = ["extensibleattributedef", "fileop", "hsm:allgroups", "hsm:safenetgroup", "hsm:thalesgroup", "kerberoskey", "awsrte53taskgroup", "awsuser", "captiveportal", "scheduledtask", "search", "smartfolder:children", "smartfolder:global", "smartfolder:personal"]
-	vlan = ["vlan", "vlanrange", "vlanview"]
-	temp = vlan
+	res = {"rpz": ["allrpzrecords", "orderedresponsepolicyzones", "record:rpz:a", "record:rpz:aaaa", "record:rpz:aaaa:ipaddress", "record:rpz:a:ipaddress", "record:rpz:cname", "record:rpz:cname:clientipaddress", "record:rpz:cname:clientipaddressdn", "record:rpz:cname:ipaddress", "record:rpz:cname:ipaddressdn", "record:rpz:mx", "record:rpz:naptr", "record:rpz:ptr", "record:rpz:srv", "record:rpz:txt", "outbound:cloudclient", "taxii"]
+	,"dns": ["grid:dns", "member:dns", "allrecords", "bulkhost", "record:host", "record:a", "record:aaaa", "record:alias", "record:caa", "record:cname", "record:dhcid", "record:dname", "record:dnskey", "record:ds", "record:dtclbdn", "record:host_ipv4addr", "record:host_ipv6addr", "record:mx", "record:naptr", "record:ns", "record:nsec", "record:nsec3", "record:nsec3param", "record:ptr", "record:rrsig", "record:srv", "record:tlsa", "record:txt", "record:unknown", "recordnamepolicy", "ruleset", "sharedrecord:a", "sharedrecord:aaaa", "sharedrecord:cname", "sharedrecord:mx", "sharedrecord:srv", "sharedrecord:txt", "sharedrecordgroup", "view", "zone_auth", "zone_auth_discrepancy", "zone_delegated", "zone_forward" , "zone_rp", "zone_stub", "nsgroup", "nsgroup:delegation", "nsgroup:forwardingmember", "nsgroup:stubmember", "nsgroup:forwardstubserver", "ddns:principalcluster", "ddns:principalcluster:group", "dns64group", "hostnamerewritepolicy", "bulkhostnametemplate", "scavengingtask", "view"]
+	,"parental_control": ["parentalcontrol:avp", "parentalcontrol:blockingpolicy", "parentalcontrol:ipspacediscriminator", "parentalcontrol:subscriber", "parentalcontrol:subscriberrecord", "parentalcontrol:subscribersite"]
+	,"dtc": ["dtc", "dtc:allrecords" , "dtc:certificate", "dtc:lbdn, dtc:monitor", "dtc:monitor:http", "dtc:monitor:icmp", "dtc:monitor:pdp", "dtc:monitor:sip", "dtc:monitor:snmp",  "dtc:monitor:tcp", "dtc:object", "dtc:pool", "dtc:record:a", "dtc:record:aaaa", "dtc:record:cname", "dtc:record:naptr", "dtc:record:srv", "dtc:server", "dtc:topology", "dtc:topology:label", "dtc:topology:rule"]
+	,"discovery": ["discovery", "discovery:device", "discovery:devicecomponent", "discovery:deviceinterface", "discovery:deviceneighbor", "discovery:devicesupportbundle", "discovery:diagnostictask", "discovery:gridproperties", "discovery:memberproperties", "discovery:status", "discovery:vrf", "discoverytask", "network_discovery"]
+	,"dhcp": ["grid:dhcpproperties", "member:dhcpproperties", "dhcp:statistics", "dhcpfailover", "dhcpoptiondefinition", "dhcpoptionspace", "filterfingerprint", "filtermac", "filternac", "filteroption" , "filterrelayagent", "fingerprint", "fixedaddress", "fixedaddresstemplate", "ipv6dhcpoptiondefinition", "ipv6dhcpoptionspace", "ipv6fixedaddress", "ipv6fixedaddresstemplate", "ipv6network", "ipv6networkcontainer", "ipv6networktemplate", "ipv6range", "ipv6rangetemplate", "ipv6sharednetwork", "lease", "macfilteraddress", "network", "networkcontainer", "networktemplate", "networkview", "orderedranges", "range", "rangetemplate", "roaminghost", "sharednetwork" ]
+	,"ipam": ["ipam:statistics", "ipv4address", "ipv6address", "superhost", "superhostchild"]
+	,"grid": ["grid", "grid:cloudapi", "grid:cloudapi:cloudstatistics", "grid:cloudapi:tenant", "grid:cloudapi:vm", "grid:cloudapi:vmaddress", "grid:dashboard", "grid:filedistribution", "grid:license_pool", "grid:license_pool_container", "grid:maxminddbinfo", "grid:member:cloudapi", "grid:servicerestart:group", "grid:servicerestart:group:order", "grid:servicerestart:request", "grid:servicerestart:request:changedobject", "grid:servicerestart:status", "grid:threatanalytics", "grid:threatprotection", "grid:x509certificate", "license:gridwide", "mastergrid", "cacertificate", "capacityreport", "csvimporttask", "db_objects", "dbsnapshot", "deleted_objects", "member", "member:filedistribution", "member:license", "member:parentalcontrol", "member:threatanalytics", "member:threatprotection", "namedacl", "natgroup", "restartservicestatus", "rir", "rir:organization", "tftpfiledir", "upgradegroup", "upgradeschedule", "upgradestatus", "vdiscoverytask"]
+	,"microsoft": ["msserver", "msserver:adsites:domain", "msserver:adsites:site", "msserver:dhcp", "msserver:dns", "mssuperscope"]
+	,"outbound": ["allendpoints", "ciscoise:endpoint", "dxl:endpoint", "notification:rest:endpoint", "notification:rest:template", "notification:rule", "pxgrid:endpoint", "syslog:endpoint"]
+	,"users": ["ad_auth_service", "admingroup", "adminrole", "adminuser", "approvalworkflow", "authpolicy", "ldap_auth_service", "localuser:authservice", "bfdtemplate", "certificate:authservice", "ftpuser", "networkuser", "permission", "radius:authservice", "saml:authservice", "snmpuser", "tacacsplus:authservice", "userprofile"]
+	,"threat_analytics": ["threatanalytics:moduleset", "threatanalytics:whitelist", "threatinsight:cloudclient", "threatprotection:grid:rule", "threatprotection:profile", "threatprotection:profile:rule", "threatprotection:rule", "threatprotection:rulecategory", "threatprotection:ruleset", "threatprotection:ruletemplate", "threatprotection:statistics" ]
+	,"miscellaneous": ["extensibleattributedef", "fileop", "hsm:allgroups", "hsm:safenetgroup", "hsm:thalesgroup", "kerberoskey", "awsrte53taskgroup", "awsuser", "captiveportal", "scheduledtask", "search", "smartfolder:children", "smartfolder:global", "smartfolder:personal"]
+	,"vlan": ["vlan", "vlanrange", "vlanview"]}
+	temp = sorted(res[object_name])
 
 	global parameters_dict
 	parameters_dict = {}
@@ -399,21 +398,23 @@ def create_components(doc,main_dict):
 #main function
 def main():
 	ip = ['127.0.0.1'] #enter the IP of GM here
-	ver = ["v2.7","v2.8","v2.9","v2.10","v2.11"]
+	ver = ["v2.7","v2.8","v2.9","v2.10","v2.11","v2.11.1","v2.12"]
+	l=["dns","dhcp","discovery","dtc","grid","ipam","microsoft","outbound","users","threat_analytics","miscellaneous","vlan","rpz","parental_control"]
 	global wapi_version
-	for wapi_version in ver:
-		doc = open("{}/vlan.json".format(wapi_version),"w")
-		main_dict = {}
+	global object_name
+	for object_name in l:
+		for wapi_version in ver:
+			doc = open("{}/{}.json".format(wapi_version,object_name),"w")
+			main_dict = {}
 
-		create_introduction(doc,ip,main_dict)
-		create_path(doc,ip,main_dict)
-		create_components(doc,main_dict)
+			create_introduction(doc,ip,main_dict)
+			create_path(doc,ip,main_dict)
+			create_components(doc,main_dict)
 
-		doc.write(str(main_dict))
-		doc.close()
-		print(""+wapi_version+" Done..!!")
-	
-
+			doc.write(json.dumps(main_dict, indent=2))
+			doc.close()
+			print(""+wapi_version+" Done..!!")
+		print(""+object_name+" Done..!!")
 	print("Complete")
 
 if __name__ == "__main__":

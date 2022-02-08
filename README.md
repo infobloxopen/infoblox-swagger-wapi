@@ -4,7 +4,7 @@
 -----------
                             	      Copyright 2021                                            
                       	Author: Vedant Sethia <vsethia@infoblox.com>                         
-  		For any issues/suggestions please write to kvasudevan@infoblox.com           
+  		For any issues/suggestions please write to Krishna Vasudevan <kvasudevan@infoblox.com>           
 
 -----------
 
