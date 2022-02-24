@@ -1,1607 +1,1607 @@
 {
+  "openapi": "3.0.0",
   "info": {
-    "version": "v2.11", 
-    "contact": {
-      "name": "Krishna", 
-      "email": "kvasudevan@infoblox.com"
-    }, 
-    "description": "Sample WAPI Documentation", 
+    "description": "Sample WAPI Documentation",
+    "version": "v2.11",
+    "title": "Infoblox WAPI",
     "license": {
-      "url": "https://www.infoblox.com/", 
-      "name": "Infoblox License"
-    }, 
-    "title": "Infoblox WAPI"
-  }, 
+      "name": "Infoblox License",
+      "url": "https://www.infoblox.com/"
+    },
+    "contact": {
+      "name": "Krishna",
+      "email": "kvasudevan@infoblox.com"
+    }
+  },
   "paths": {
-    "/wapi/v2.11/vlanview/{vlanview_reference}": {
-      "put": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanview"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanview", 
-            "required": true, 
-            "name": "vlanview_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanview"
-        ], 
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {
-                  "comment": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "pre_create_vlan": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "allow_range_overlapping": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "name": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "start_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "end_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "vlan_name_prefix": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "extattrs": {
-                    "type": "string", 
-                    "example": "extattr"
-                  }
-                }
-              }
-            }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "description": "Update the vlanview resource"
-      }, 
-      "post": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object", 
-                  "properties": {
-                    "next_available_vlan_id": {
-                      "type": "string", 
-                      "example": {
-                        "exclude": "string", 
-                        "num": "uint"
-                      }
-                    }
-                  }
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanview", 
-            "required": true, 
-            "name": "vlanview_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "enum": [
-                "next_available_vlan_id"
-              ], 
-              "type": "string"
-            }, 
-            "description": "Select the function", 
-            "required": true, 
-            "name": "_function", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanview"
-        ], 
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {}
-              }
-            }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "description": "Function calls"
-      }, 
-      "delete": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object", 
-                  "properties": {
-                    "$ref": {
-                      "type": "string", 
-                      "description": "Reference of the deleted string"
-                    }
-                  }
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "description": "Delete the vlanview resource", 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanview", 
-            "required": true, 
-            "name": "vlanview_reference", 
-            "in": "path"
-          }
-        ], 
-        "tags": [
-          "vlanview"
-        ]
-      }, 
-      "get": {
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanview"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanview", 
-            "required": true, 
-            "name": "vlanview_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanview"
-        ]
-      }
-    }, 
-    "/wapi/v2.11/vlanview": {
-      "post": {
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {
-                  "comment": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "pre_create_vlan": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "allow_range_overlapping": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "name": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "start_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "end_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "vlan_name_prefix": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "extattrs": {
-                    "type": "string", 
-                    "example": "extattr"
-                  }
-                }
-              }
-            }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "201": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanview"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanview"
-        ]
-      }, 
-      "get": {
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanview"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "minimum": 1, 
-              "type": "integer"
-            }, 
-            "description": "Enter the number of results to be fetched", 
-            "required": false, 
-            "name": "_max_results", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.", 
-            "required": false, 
-            "name": "_paging", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the page ID for fetching next page", 
-            "required": false, 
-            "name": " _page_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "allow_range_overlapping", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "comment", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "end_vlan_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "name", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "start_vlan_id", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanview"
-        ]
-      }
-    }, 
-    "/wapi/v2.11/vlanrange/{vlanrange_reference}": {
-      "put": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanrange"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanrange", 
-            "required": true, 
-            "name": "vlanrange_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanrange"
-        ], 
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {
-                  "comment": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "pre_create_vlan": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "vlan_view": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "name": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "start_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "end_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "vlan_name_prefix": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "extattrs": {
-                    "type": "string", 
-                    "example": "extattr"
-                  }
-                }
-              }
-            }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "description": "Update the vlanrange resource"
-      }, 
-      "post": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object", 
-                  "properties": {
-                    "next_available_vlan_id": {
-                      "type": "string", 
-                      "example": {
-                        "exclude": "string", 
-                        "num": "uint"
-                      }
-                    }
-                  }
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanrange", 
-            "required": true, 
-            "name": "vlanrange_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "enum": [
-                "next_available_vlan_id"
-              ], 
-              "type": "string"
-            }, 
-            "description": "Select the function", 
-            "required": true, 
-            "name": "_function", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanrange"
-        ], 
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {}
-              }
-            }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "description": "Function calls"
-      }, 
-      "delete": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object", 
-                  "properties": {
-                    "$ref": {
-                      "type": "string", 
-                      "description": "Reference of the deleted string"
-                    }
-                  }
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "description": "Delete the vlanrange resource", 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanrange", 
-            "required": true, 
-            "name": "vlanrange_reference", 
-            "in": "path"
-          }
-        ], 
-        "tags": [
-          "vlanrange"
-        ]
-      }, 
-      "get": {
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanrange"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlanrange", 
-            "required": true, 
-            "name": "vlanrange_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanrange"
-        ]
-      }
-    }, 
     "/wapi/v2.11/vlan": {
+      "get": {
+        "tags": [
+          "vlan"
+        ],
+        "parameters": [
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_max_results",
+            "in": "query",
+            "required": false,
+            "description": "Enter the number of results to be fetched",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "_paging",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": " _page_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the page ID for fetching next page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assigned_to",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contact",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "department",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "reserved",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlan"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
       "post": {
+        "tags": [
+          "vlan"
+        ],
+        "parameters": [
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object", 
+                "type": "object",
                 "properties": {
                   "comment": {
-                    "type": "string", 
+                    "type": "string",
                     "example": "string"
-                  }, 
-                  "reserved": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "description": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "parent": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
+                  },
                   "contact": {
-                    "type": "string", 
+                    "type": "string",
                     "example": "string"
-                  }, 
-                  "extattrs": {
-                    "type": "string", 
-                    "example": "extattr"
-                  }, 
+                  },
                   "department": {
-                    "type": "string", 
+                    "type": "string",
                     "example": "string"
-                  }, 
-                  "id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "name": {
-                    "type": "string", 
+                  },
+                  "description": {
+                    "type": "string",
                     "example": "string"
-                  }
-                }
-              }
-            }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "201": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlan"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlan"
-        ]
-      }, 
-      "get": {
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlan"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "minimum": 1, 
-              "type": "integer"
-            }, 
-            "description": "Enter the number of results to be fetched", 
-            "required": false, 
-            "name": "_max_results", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.", 
-            "required": false, 
-            "name": "_paging", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the page ID for fetching next page", 
-            "required": false, 
-            "name": " _page_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "assigned_to", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "comment", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "contact", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "department", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "description", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "name", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "parent", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "reserved", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "status", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlan"
-        ]
-      }
-    }, 
-    "/wapi/v2.11/vlanrange": {
-      "post": {
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {
-                  "comment": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "pre_create_vlan": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "vlan_view": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "name": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "start_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "end_vlan_id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "vlan_name_prefix": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
+                  },
                   "extattrs": {
-                    "type": "string", 
+                    "type": "string",
                     "example": "extattr"
+                  },
+                  "id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "parent": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "reserved": {
+                    "type": "string",
+                    "example": "bool"
                   }
                 }
               }
             }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
-        "security": [
-          {
-            "basicAuth": []
           }
-        ], 
+        },
         "responses": {
           "201": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/vlanrange"
+                  "$ref": "#/components/schemas/vlan"
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanrange"
-        ]
-      }, 
-      "get": {
+        },
         "security": [
           {
             "basicAuth": []
           }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/vlanrange"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "minimum": 1, 
-              "type": "integer"
-            }, 
-            "description": "Enter the number of results to be fetched", 
-            "required": false, 
-            "name": "_max_results", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.", 
-            "required": false, 
-            "name": "_paging", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the page ID for fetching next page", 
-            "required": false, 
-            "name": " _page_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "comment", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "end_vlan_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "name", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "start_vlan_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "vlan_view", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlanrange"
         ]
       }
-    }, 
+    },
     "/wapi/v2.11/vlan/{vlan_reference}": {
-      "put": {
+      "get": {
+        "tags": [
+          "vlan"
+        ],
+        "parameters": [
+          {
+            "name": "vlan_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlan",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          }
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/vlan"
                 }
               }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlan", 
-            "required": true, 
-            "name": "vlan_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "vlan"
-        ], 
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object", 
-                "properties": {
-                  "comment": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "reserved": {
-                    "type": "string", 
-                    "example": "bool"
-                  }, 
-                  "description": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "parent": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "contact": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "extattrs": {
-                    "type": "string", 
-                    "example": "extattr"
-                  }, 
-                  "department": {
-                    "type": "string", 
-                    "example": "string"
-                  }, 
-                  "id": {
-                    "type": "string", 
-                    "example": "uint"
-                  }, 
-                  "name": {
-                    "type": "string", 
-                    "example": "string"
-                  }
-                }
-              }
             }
-          }, 
-          "required": true, 
-          "description": "Enter the request body here"
-        }, 
+          }
+        },
         "security": [
           {
             "basicAuth": []
           }
-        ], 
-        "description": "Update the vlan resource"
-      }, 
-      "delete": {
+        ]
+      },
+      "put": {
+        "description": "Update the vlan resource",
+        "tags": [
+          "vlan"
+        ],
+        "parameters": [
+          {
+            "name": "vlan_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlan",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "contact": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "department": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "extattrs": {
+                    "type": "string",
+                    "example": "extattr"
+                  },
+                  "id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "parent": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "reserved": {
+                    "type": "string",
+                    "example": "bool"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object", 
+                  "$ref": "#/components/schemas/vlan"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete the vlan resource",
+        "tags": [
+          "vlan"
+        ],
+        "parameters": [
+          {
+            "name": "vlan_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlan",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
                   "properties": {
                     "$ref": {
-                      "type": "string", 
+                      "type": "string",
                       "description": "Reference of the deleted string"
                     }
                   }
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
+        },
         "security": [
           {
             "basicAuth": []
           }
-        ], 
-        "description": "Delete the vlan resource", 
+        ]
+      }
+    },
+    "/wapi/v2.11/vlanrange": {
+      "get": {
+        "tags": [
+          "vlanrange"
+        ],
         "parameters": [
           {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
             "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlan", 
-            "required": true, 
-            "name": "vlan_reference", 
-            "in": "path"
-          }
-        ], 
-        "tags": [
-          "vlan"
-        ]
-      }, 
-      "get": {
-        "security": [
+              "type": "string"
+            }
+          },
           {
-            "basicAuth": []
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_max_results",
+            "in": "query",
+            "required": false,
+            "description": "Enter the number of results to be fetched",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "_paging",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": " _page_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the page ID for fetching next page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_vlan_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_vlan_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vlan_view",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
           }
-        ], 
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/vlan"
+                  "$ref": "#/components/schemas/vlanrange"
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "vlanrange"
+        ],
         "parameters": [
           {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for vlan", 
-            "required": true, 
-            "name": "vlan_reference", 
-            "in": "path"
-          }, 
-          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
             "schema": {
               "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
+            }
           }
-        ], 
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "end_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "extattrs": {
+                    "type": "string",
+                    "example": "extattr"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "pre_create_vlan": {
+                    "type": "string",
+                    "example": "bool"
+                  },
+                  "start_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "vlan_name_prefix": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "vlan_view": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanrange"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/wapi/v2.11/vlanrange/{vlanrange_reference}": {
+      "get": {
         "tags": [
-          "vlan"
+          "vlanrange"
+        ],
+        "parameters": [
+          {
+            "name": "vlanrange_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanrange",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanrange"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "description": "Function calls",
+        "tags": [
+          "vlanrange"
+        ],
+        "parameters": [
+          {
+            "name": "vlanrange_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanrange",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_function",
+            "in": "query",
+            "required": true,
+            "description": "Select the function",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "next_available_vlan_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "next_available_vlan_id": {
+                      "type": "string",
+                      "example": {
+                        "num": "uint",
+                        "exclude": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "put": {
+        "description": "Update the vlanrange resource",
+        "tags": [
+          "vlanrange"
+        ],
+        "parameters": [
+          {
+            "name": "vlanrange_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanrange",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "end_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "extattrs": {
+                    "type": "string",
+                    "example": "extattr"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "pre_create_vlan": {
+                    "type": "string",
+                    "example": "bool"
+                  },
+                  "start_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "vlan_name_prefix": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "vlan_view": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanrange"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete the vlanrange resource",
+        "tags": [
+          "vlanrange"
+        ],
+        "parameters": [
+          {
+            "name": "vlanrange_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanrange",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string",
+                      "description": "Reference of the deleted string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/wapi/v2.11/vlanview": {
+      "get": {
+        "tags": [
+          "vlanview"
+        ],
+        "parameters": [
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_max_results",
+            "in": "query",
+            "required": false,
+            "description": "Enter the number of results to be fetched",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "_paging",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": " _page_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the page ID for fetching next page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allow_range_overlapping",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_vlan_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_vlan_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanview"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "vlanview"
+        ],
+        "parameters": [
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allow_range_overlapping": {
+                    "type": "string",
+                    "example": "bool"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "end_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "extattrs": {
+                    "type": "string",
+                    "example": "extattr"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "pre_create_vlan": {
+                    "type": "string",
+                    "example": "bool"
+                  },
+                  "start_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "vlan_name_prefix": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanview"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/wapi/v2.11/vlanview/{vlanview_reference}": {
+      "get": {
+        "tags": [
+          "vlanview"
+        ],
+        "parameters": [
+          {
+            "name": "vlanview_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanview",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanview"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "description": "Function calls",
+        "tags": [
+          "vlanview"
+        ],
+        "parameters": [
+          {
+            "name": "vlanview_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanview",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_function",
+            "in": "query",
+            "required": true,
+            "description": "Select the function",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "next_available_vlan_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "next_available_vlan_id": {
+                      "type": "string",
+                      "example": {
+                        "num": "uint",
+                        "exclude": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "put": {
+        "description": "Update the vlanview resource",
+        "tags": [
+          "vlanview"
+        ],
+        "parameters": [
+          {
+            "name": "vlanview_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanview",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Enter the request body here",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allow_range_overlapping": {
+                    "type": "string",
+                    "example": "bool"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "end_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "extattrs": {
+                    "type": "string",
+                    "example": "extattr"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "pre_create_vlan": {
+                    "type": "string",
+                    "example": "bool"
+                  },
+                  "start_vlan_id": {
+                    "type": "string",
+                    "example": "uint"
+                  },
+                  "vlan_name_prefix": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/vlanview"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete the vlanview resource",
+        "tags": [
+          "vlanview"
+        ],
+        "parameters": [
+          {
+            "name": "vlanview_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for vlanview",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string",
+                      "description": "Reference of the deleted string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
         ]
       }
     }
-  }, 
+  },
   "components": {
     "securitySchemes": {
       "basicAuth": {
-        "scheme": "basic", 
-        "type": "http"
+        "type": "http",
+        "scheme": "basic"
       }
-    }, 
+    },
     "schemas": {
-      "vlanview": {
-        "type": "object", 
-        "properties": {
-          "comment": {
-            "type": "string", 
-            "description": "A descriptive comment for this VLAN View."
-          }, 
-          "pre_create_vlan": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "If set on creation VLAN objects will be created once VLAN View created."
-          }, 
-          "allow_range_overlapping": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "When set to true VLAN Ranges under VLAN View can have overlapping ID."
-          }, 
-          "name": {
-            "type": "string", 
-            "description": "Name of the VLAN View."
-          }, 
-          "start_vlan_id": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "Start ID for VLAN View."
-          }, 
-          "end_vlan_id": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "End ID for VLAN View."
-          }, 
-          "vlan_name_prefix": {
-            "type": "string", 
-            "description": "If set on creation prefix string will be used for VLAN name."
-          }, 
-          "extattrs": {
-            "enum": [
-              "extattr"
-            ], 
-            "type": "string", 
-            "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
-          }
-        }
-      }, 
       "vlan": {
-        "type": "object", 
+        "type": "object",
         "properties": {
-          "comment": {
-            "type": "string", 
-            "description": "A descriptive comment for this VLAN."
-          }, 
-          "status": {
-            "enum": [
-              "UNASSIGNED", 
-              "ASSIGNED", 
-              "RESERVED"
-            ], 
-            "type": "string", 
-            "description": "Status of VLAN object. Can be Assigned, Unassigned, Reserved."
-          }, 
-          "reserved": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "When set VLAN can only be assigned to IPAM object manually."
-          }, 
-          "description": {
-            "type": "string", 
-            "description": "Description for the VLAN object, may be potentially used for longer VLAN names."
-          }, 
-          "parent": {
-            "type": "string", 
-            "description": "The VLAN View or VLAN Range to which this VLAN belongs."
-          }, 
           "assigned_to": {
+            "type": "string",
             "enum": [
               "network"
-            ], 
-            "type": "string", 
+            ],
             "description": "List of objects VLAN is assigned to."
-          }, 
+          },
+          "comment": {
+            "type": "string",
+            "description": "A descriptive comment for this VLAN."
+          },
           "contact": {
-            "type": "string", 
+            "type": "string",
             "description": "Contact information for person/team managing or using VLAN."
-          }, 
+          },
+          "department": {
+            "type": "string",
+            "description": "Department where VLAN is used."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description for the VLAN object, may be potentially used for longer VLAN names."
+          },
           "extattrs": {
+            "type": "string",
             "enum": [
               "extattr"
-            ], 
-            "type": "string", 
+            ],
             "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
-          }, 
-          "department": {
-            "type": "string", 
-            "description": "Department where VLAN is used."
-          }, 
+          },
           "id": {
-            "type": "integer", 
-            "example": "integer", 
+            "type": "integer",
+            "example": "integer",
             "description": "VLAN ID value."
-          }, 
+          },
           "name": {
-            "type": "string", 
+            "type": "string",
             "description": "Name of the VLAN."
+          },
+          "parent": {
+            "type": "string",
+            "description": "The VLAN View or VLAN Range to which this VLAN belongs."
+          },
+          "reserved": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "When set VLAN can only be assigned to IPAM object manually."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "UNASSIGNED",
+              "ASSIGNED",
+              "RESERVED"
+            ],
+            "description": "Status of VLAN object. Can be Assigned, Unassigned, Reserved."
           }
         }
-      }, 
+      },
       "vlanrange": {
-        "type": "object", 
+        "type": "object",
         "properties": {
           "comment": {
-            "type": "string", 
+            "type": "string",
             "description": "A descriptive comment for this VLAN Range."
-          }, 
-          "pre_create_vlan": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "If set on creation VLAN objects will be created once VLAN Range created."
-          }, 
-          "vlan_view": {
-            "type": "string", 
-            "description": "The VLAN View to which this VLAN Range belongs."
-          }, 
-          "name": {
-            "type": "string", 
-            "description": "Name of the VLAN Range."
-          }, 
-          "start_vlan_id": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "Start ID for VLAN Range."
-          }, 
+          },
+          "delete_vlans": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "Vlans delete option. Determines whether all child objects should be removed alongside with the VLAN Range or child objects should be assigned to another parental VLAN Range/View. By default child objects are re-parented."
+          },
           "end_vlan_id": {
-            "type": "integer", 
-            "example": "integer", 
+            "type": "integer",
+            "example": "integer",
             "description": "End ID for VLAN Range."
-          }, 
-          "vlan_name_prefix": {
-            "type": "string", 
-            "description": "If set on creation prefix string will be used for VLAN name."
-          }, 
+          },
           "extattrs": {
+            "type": "string",
             "enum": [
               "extattr"
-            ], 
-            "type": "string", 
+            ],
             "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
-          }, 
-          "delete_vlans": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "Vlans delete option. Determines whether all child objects should be removed alongside with the VLAN Range or child objects should be assigned to another parental VLAN Range/View. By default child objects are re-parented."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the VLAN Range."
+          },
+          "pre_create_vlan": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "If set on creation VLAN objects will be created once VLAN Range created."
+          },
+          "start_vlan_id": {
+            "type": "integer",
+            "example": "integer",
+            "description": "Start ID for VLAN Range."
+          },
+          "vlan_name_prefix": {
+            "type": "string",
+            "description": "If set on creation prefix string will be used for VLAN name."
+          },
+          "vlan_view": {
+            "type": "string",
+            "description": "The VLAN View to which this VLAN Range belongs."
+          }
+        }
+      },
+      "vlanview": {
+        "type": "object",
+        "properties": {
+          "allow_range_overlapping": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "When set to true VLAN Ranges under VLAN View can have overlapping ID."
+          },
+          "comment": {
+            "type": "string",
+            "description": "A descriptive comment for this VLAN View."
+          },
+          "end_vlan_id": {
+            "type": "integer",
+            "example": "integer",
+            "description": "End ID for VLAN View."
+          },
+          "extattrs": {
+            "type": "string",
+            "enum": [
+              "extattr"
+            ],
+            "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the VLAN View."
+          },
+          "pre_create_vlan": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "If set on creation VLAN objects will be created once VLAN View created."
+          },
+          "start_vlan_id": {
+            "type": "integer",
+            "example": "integer",
+            "description": "Start ID for VLAN View."
+          },
+          "vlan_name_prefix": {
+            "type": "string",
+            "description": "If set on creation prefix string will be used for VLAN name."
           }
         }
       }
     }
-  }, 
-  "openapi": "3.0.0"
+  }
 }

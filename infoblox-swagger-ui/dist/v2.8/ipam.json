@@ -1,1095 +1,1095 @@
 {
+  "openapi": "3.0.0",
   "info": {
-    "version": "v2.8", 
-    "contact": {
-      "name": "Krishna", 
-      "email": "kvasudevan@infoblox.com"
-    }, 
-    "description": "Sample WAPI Documentation", 
+    "description": "Sample WAPI Documentation",
+    "version": "v2.8",
+    "title": "Infoblox WAPI",
     "license": {
-      "url": "https://www.infoblox.com/", 
-      "name": "Infoblox License"
-    }, 
-    "title": "Infoblox WAPI"
-  }, 
+      "name": "Infoblox License",
+      "url": "https://www.infoblox.com/"
+    },
+    "contact": {
+      "name": "Krishna",
+      "email": "kvasudevan@infoblox.com"
+    }
+  },
   "paths": {
-    "/wapi/v2.8/ipv6address": {
-      "get": {
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ipv6address"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "minimum": 1, 
-              "type": "integer"
-            }, 
-            "description": "Enter the number of results to be fetched", 
-            "required": false, 
-            "name": "_max_results", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.", 
-            "required": false, 
-            "name": "_paging", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the page ID for fetching next page", 
-            "required": false, 
-            "name": " _page_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "duid", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "fingerprint", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "ip_address", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "is_conflict", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "lease_state", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "names", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "network", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "network_view", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "status", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "types", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "usage", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "ipv6address"
-        ]
-      }
-    }, 
     "/wapi/v2.8/ipam:statistics": {
       "get": {
-        "security": [
+        "tags": [
+          "ipam:statistics"
+        ],
+        "parameters": [
           {
-            "basicAuth": []
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_max_results",
+            "in": "query",
+            "required": false,
+            "description": "Enter the number of results to be fetched",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "_paging",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": " _page_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the page ID for fetching next page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network_view",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
           }
-        ], 
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ipam_statistics"
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "minimum": 1, 
-              "type": "integer"
-            }, 
-            "description": "Enter the number of results to be fetched", 
-            "required": false, 
-            "name": "_max_results", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.", 
-            "required": false, 
-            "name": "_paging", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the page ID for fetching next page", 
-            "required": false, 
-            "name": " _page_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "network", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "network_view", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "ipam:statistics"
-        ]
-      }
-    }, 
-    "/wapi/v2.8/ipv4address/{ipv4address_reference}": {
-      "delete": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object", 
-                  "properties": {
-                    "$ref": {
-                      "type": "string", 
-                      "description": "Reference of the deleted string"
-                    }
-                  }
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
+        },
         "security": [
           {
             "basicAuth": []
           }
-        ], 
-        "description": "Delete the ipv4address resource", 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for ipv4address", 
-            "required": true, 
-            "name": "ipv4address_reference", 
-            "in": "path"
-          }
-        ], 
-        "tags": [
-          "ipv4address"
-        ]
-      }, 
-      "get": {
-        "security": [
-          {
-            "basicAuth": []
-          }
-        ], 
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ipv4address"
-                }
-              }
-            }, 
-            "description": "OK"
-          }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for ipv4address", 
-            "required": true, 
-            "name": "ipv4address_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "ipv4address"
         ]
       }
-    }, 
+    },
     "/wapi/v2.8/ipam:statistics/{ipam:statistics_reference}": {
       "get": {
-        "security": [
+        "tags": [
+          "ipam:statistics"
+        ],
+        "parameters": [
           {
-            "basicAuth": []
+            "name": "ipam:statistics_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for ipam:statistics",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
           }
-        ], 
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ipam_statistics"
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for ipam:statistics", 
-            "required": true, 
-            "name": "ipam:statistics_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }
-        ], 
-        "tags": [
-          "ipam:statistics"
-        ]
-      }
-    }, 
-    "/wapi/v2.8/ipv4address": {
-      "get": {
+        },
         "security": [
           {
             "basicAuth": []
           }
-        ], 
+        ]
+      }
+    },
+    "/wapi/v2.8/ipv4address": {
+      "get": {
+        "tags": [
+          "ipv4address"
+        ],
+        "parameters": [
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_max_results",
+            "in": "query",
+            "required": false,
+            "description": "Enter the number of results to be fetched",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "_paging",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": " _page_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the page ID for fetching next page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dhcp_client_identifier",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fingerprint",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ip_address",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "is_conflict",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lease_state",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mac_address",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "names",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network_view",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usage",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ipv4address"
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
-        "parameters": [
+        },
+        "security": [
           {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "minimum": 1, 
-              "type": "integer"
-            }, 
-            "description": "Enter the number of results to be fetched", 
-            "required": false, 
-            "name": "_max_results", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.", 
-            "required": false, 
-            "name": "_paging", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the page ID for fetching next page", 
-            "required": false, 
-            "name": " _page_id", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "dhcp_client_identifier", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "fingerprint", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "ip_address", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "is_conflict", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "lease_state", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "mac_address", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "names", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "network", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "network_view", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "status", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "types", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "usage", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the value of the field", 
-            "required": false, 
-            "name": "username", 
-            "in": "query"
+            "basicAuth": []
           }
-        ], 
-        "tags": [
-          "ipv4address"
         ]
       }
-    }, 
-    "/wapi/v2.8/ipv6address/{ipv6address_reference}": {
-      "delete": {
+    },
+    "/wapi/v2.8/ipv4address/{ipv4address_reference}": {
+      "get": {
+        "tags": [
+          "ipv4address"
+        ],
+        "parameters": [
+          {
+            "name": "ipv4address_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for ipv4address",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          }
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object", 
+                  "$ref": "#/components/schemas/ipv4address"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete the ipv4address resource",
+        "tags": [
+          "ipv4address"
+        ],
+        "parameters": [
+          {
+            "name": "ipv4address_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for ipv4address",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
                   "properties": {
                     "$ref": {
-                      "type": "string", 
+                      "type": "string",
                       "description": "Reference of the deleted string"
                     }
                   }
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
+        },
         "security": [
           {
             "basicAuth": []
           }
-        ], 
-        "description": "Delete the ipv6address resource", 
-        "parameters": [
-          {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for ipv6address", 
-            "required": true, 
-            "name": "ipv6address_reference", 
-            "in": "path"
-          }
-        ], 
+        ]
+      }
+    },
+    "/wapi/v2.8/ipv6address": {
+      "get": {
         "tags": [
           "ipv6address"
-        ]
-      }, 
-      "get": {
-        "security": [
+        ],
+        "parameters": [
           {
-            "basicAuth": []
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_max_results",
+            "in": "query",
+            "required": false,
+            "description": "Enter the number of results to be fetched",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "_paging",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if paging is required. If SET, _max_results and _return_as_object must be entered.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": " _page_id",
+            "in": "query",
+            "required": false,
+            "description": "Enter the page ID for fetching next page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "duid",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fingerprint",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ip_address",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "is_conflict",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lease_state",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "names",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network_view",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usage",
+            "in": "query",
+            "required": false,
+            "description": "Enter the value of the field",
+            "schema": {
+              "type": "string"
+            }
           }
-        ], 
+        ],
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ipv6address"
                 }
               }
-            }, 
-            "description": "OK"
+            }
           }
-        }, 
-        "parameters": [
+        },
+        "security": [
           {
-            "schema": {
-              "type": "string", 
-              "example": "resourceID:resourceName"
-            }, 
-            "description": "Enter the reference for ipv6address", 
-            "required": true, 
-            "name": "ipv6address_reference", 
-            "in": "path"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma", 
-            "required": false, 
-            "name": "_return_fields", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "type": "string"
-            }, 
-            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields", 
-            "required": false, 
-            "name": "_return_fields+", 
-            "in": "query"
-          }, 
-          {
-            "schema": {
-              "default": 0, 
-              "enum": [
-                0, 
-                1
-              ], 
-              "type": "integer"
-            }, 
-            "description": "Select 1 if result is required as a object", 
-            "required": false, 
-            "name": "_return_as_object", 
-            "in": "query"
+            "basicAuth": []
           }
-        ], 
+        ]
+      }
+    },
+    "/wapi/v2.8/ipv6address/{ipv6address_reference}": {
+      "get": {
         "tags": [
           "ipv6address"
+        ],
+        "parameters": [
+          {
+            "name": "ipv6address_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for ipv6address",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          },
+          {
+            "name": "_return_fields",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_fields+",
+            "in": "query",
+            "required": false,
+            "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_return_as_object",
+            "in": "query",
+            "required": false,
+            "description": "Select 1 if result is required as a object",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ipv6address"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete the ipv6address resource",
+        "tags": [
+          "ipv6address"
+        ],
+        "parameters": [
+          {
+            "name": "ipv6address_reference",
+            "in": "path",
+            "required": true,
+            "description": "Enter the reference for ipv6address",
+            "schema": {
+              "type": "string",
+              "example": "resourceID:resourceName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "$ref": {
+                      "type": "string",
+                      "description": "Reference of the deleted string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
         ]
       }
     }
-  }, 
+  },
   "components": {
     "securitySchemes": {
       "basicAuth": {
-        "scheme": "basic", 
-        "type": "http"
+        "type": "http",
+        "scheme": "basic"
       }
-    }, 
+    },
     "schemas": {
-      "ipv4address": {
-        "type": "object", 
-        "properties": {
-          "status": {
-            "type": "string", 
-            "description": "The current status of the address."
-          }, 
-          "username": {
-            "type": "string", 
-            "description": "The name of the user who created or modified the record."
-          }, 
-          "usage": {
-            "type": "string", 
-            "description": "Indicates whether the IP address is configured for DNS or DHCP. This field supports both single and array search."
-          }, 
-          "names": {
-            "type": "string", 
-            "description": "The DNS names. For example, if the IP address belongs to a host record, this field contains the hostname. This field supports both single and array search."
-          }, 
-          "ms_ad_user_data": {
-            "enum": [
-              "msserver:aduser:data"
-            ], 
-            "type": "string", 
-            "description": "The Microsoft Active Directory user related information."
-          }, 
-          "discovered_data": {
-            "enum": [
-              "discoverydata"
-            ], 
-            "type": "string", 
-            "description": "The discovered data for this address."
-          }, 
-          "lease_state": {
-            "type": "string", 
-            "description": "The lease state of the address."
-          }, 
-          "extattrs": {
-            "enum": [
-              "extattr"
-            ], 
-            "type": "string", 
-            "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
-          }, 
-          "network_view": {
-            "type": "string", 
-            "description": "The name of the network view."
-          }, 
-          "mac_address": {
-            "type": "string", 
-            "description": "The MAC address."
-          }, 
-          "conflict_types": {
-            "enum": [
-              "MAC_ADDRESS", 
-              "DHCP_RANGE", 
-              "DUID", 
-              "RESERVED_PORT", 
-              "USED_RESERVED_PORT", 
-              "DEVICE_VENDOR", 
-              "DEVICE_TYPE", 
-              "VM_AFFILIATION", 
-              "NONE"
-            ], 
-            "type": "string", 
-            "description": "Types of the conflict."
-          }, 
-          "objects": {
-            "type": "string", 
-            "description": "The objects associated with the IP address."
-          }, 
-          "is_invalid_mac": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "This flag reflects whether the MAC address for this address is invalid."
-          }, 
-          "discover_now_status": {
-            "enum": [
-              "NONE", 
-              "PENDING", 
-              "RUNNING", 
-              "COMPLETE", 
-              "FAILED"
-            ], 
-            "type": "string", 
-            "description": "Discover now status for this address."
-          }, 
-          "fingerprint": {
-            "type": "string", 
-            "description": "DHCP fingerprint for the address."
-          }, 
-          "network": {
-            "type": "string", 
-            "description": "The network to which this address belongs, in FQDN/CIDR format."
-          }, 
-          "types": {
-            "type": "string", 
-            "description": "The types of associated objects. This field supports both single and array search."
-          }, 
-          "reserved_port": {
-            "type": "string", 
-            "description": "The reserved port for the address."
-          }, 
-          "ip_address": {
-            "type": "string", 
-            "description": "The IP address."
-          }, 
-          "is_conflict": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "If set to True, the IP address has either a MAC address conflict or a DHCP lease conflict detected through a network discovery."
-          }, 
-          "dhcp_client_identifier": {
-            "type": "string", 
-            "description": "The client unique identifier."
-          }
-        }
-      }, 
-      "ipv6address": {
-        "type": "object", 
-        "properties": {
-          "status": {
-            "enum": [
-              "USED", 
-              "UNUSED"
-            ], 
-            "type": "string", 
-            "description": "The current status of the address."
-          }, 
-          "usage": {
-            "type": "string", 
-            "description": "Indicates whether the IP address is configured for DNS or DHCP. This field supports both single and array search."
-          }, 
-          "ms_ad_user_data": {
-            "enum": [
-              "msserver:aduser:data"
-            ], 
-            "type": "string", 
-            "description": "The Microsoft Active Directory user related information."
-          }, 
-          "discovered_data": {
-            "enum": [
-              "discoverydata"
-            ], 
-            "type": "string", 
-            "description": "The discovered data for this address."
-          }, 
-          "duid": {
-            "type": "string", 
-            "description": "DHCPv6 Unique Identifier (DUID) of the address object."
-          }, 
-          "lease_state": {
-            "type": "string", 
-            "description": "The lease state of the address."
-          }, 
-          "extattrs": {
-            "enum": [
-              "extattr"
-            ], 
-            "type": "string", 
-            "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
-          }, 
-          "network_view": {
-            "type": "string", 
-            "description": "The name of the network view."
-          }, 
-          "conflict_types": {
-            "enum": [
-              "MAC_ADDRESS", 
-              "DHCP_RANGE", 
-              "DUID", 
-              "RESERVED_PORT", 
-              "USED_RESERVED_PORT", 
-              "DEVICE_VENDOR", 
-              "DEVICE_TYPE", 
-              "VM_AFFILIATION", 
-              "NONE"
-            ], 
-            "type": "string", 
-            "description": "Types of the conflict."
-          }, 
-          "objects": {
-            "type": "string", 
-            "description": "The objects associated with the IP address."
-          }, 
-          "names": {
-            "type": "string", 
-            "description": "The DNS names. For example, if the IP address belongs to a host record, this field contains the hostname. This field supports both single and array search."
-          }, 
-          "discover_now_status": {
-            "enum": [
-              "NONE", 
-              "PENDING", 
-              "RUNNING", 
-              "COMPLETE", 
-              "FAILED"
-            ], 
-            "type": "string", 
-            "description": "Discover now status for this address."
-          }, 
-          "fingerprint": {
-            "type": "string", 
-            "description": "DHCP fingerprint for the address."
-          }, 
-          "types": {
-            "type": "string", 
-            "description": "The types of associated objects. This field supports both single and array search."
-          }, 
-          "reserved_port": {
-            "type": "string", 
-            "description": "The reserved port for the address."
-          }, 
-          "ip_address": {
-            "type": "string", 
-            "description": "IPv6 addresses of the address object."
-          }, 
-          "is_conflict": {
-            "type": "boolean", 
-            "example": "boolean", 
-            "description": "IP address has either a duid conflict or a DHCP lease conflict detected through a network discovery."
-          }, 
-          "network": {
-            "type": "string", 
-            "description": "The network to which this address belongs, in FQDN/CIDR format."
-          }
-        }
-      }, 
       "ipam_statistics": {
-        "type": "object", 
+        "type": "object",
         "properties": {
+          "cidr": {
+            "type": "integer",
+            "example": "integer",
+            "description": "The network CIDR."
+          },
+          "conflict_count": {
+            "type": "integer",
+            "example": "integer",
+            "description": "The number of conflicts discovered via network discovery. This attribute is only valid for a Network object."
+          },
+          "ms_ad_user_data": {
+            "type": "string",
+            "enum": [
+              "msserver:aduser:data"
+            ],
+            "description": "The Microsoft Active Directory user related information."
+          },
+          "network": {
+            "type": "string",
+            "description": "The network address."
+          },
+          "network_view": {
+            "type": "string",
+            "description": "The network view."
+          },
+          "unmanaged_count": {
+            "type": "integer",
+            "example": "integer",
+            "description": "The number of unmanaged IP addresses as discovered by network discovery. This attribute is only valid for a Network object."
+          },
+          "utilization": {
+            "type": "integer",
+            "example": "integer",
+            "description": "The network utilization in percentage."
+          },
           "utilization_update": {
+            "type": "string",
             "enum": [
               "timestamp"
-            ], 
-            "type": "string", 
+            ],
             "description": "The time that the utilization statistics were updated last. This attribute is only valid for a Network object. For a Network Container object, the return value is undefined."
-          }, 
-          "conflict_count": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "The number of conflicts discovered via network discovery. This attribute is only valid for a Network object."
-          }, 
-          "network": {
-            "type": "string", 
-            "description": "The network address."
-          }, 
-          "network_view": {
-            "type": "string", 
-            "description": "The network view."
-          }, 
-          "utilization": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "The network utilization in percentage."
-          }, 
+          }
+        }
+      },
+      "ipv4address": {
+        "type": "object",
+        "properties": {
+          "conflict_types": {
+            "type": "string",
+            "enum": [
+              "MAC_ADDRESS",
+              "DHCP_RANGE",
+              "DUID",
+              "RESERVED_PORT",
+              "USED_RESERVED_PORT",
+              "DEVICE_VENDOR",
+              "DEVICE_TYPE",
+              "VM_AFFILIATION",
+              "NONE"
+            ],
+            "description": "Types of the conflict."
+          },
+          "dhcp_client_identifier": {
+            "type": "string",
+            "description": "The client unique identifier."
+          },
+          "discover_now_status": {
+            "type": "string",
+            "enum": [
+              "NONE",
+              "PENDING",
+              "RUNNING",
+              "COMPLETE",
+              "FAILED"
+            ],
+            "description": "Discover now status for this address."
+          },
+          "discovered_data": {
+            "type": "string",
+            "enum": [
+              "discoverydata"
+            ],
+            "description": "The discovered data for this address."
+          },
+          "extattrs": {
+            "type": "string",
+            "enum": [
+              "extattr"
+            ],
+            "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
+          },
+          "fingerprint": {
+            "type": "string",
+            "description": "DHCP fingerprint for the address."
+          },
+          "ip_address": {
+            "type": "string",
+            "description": "The IP address."
+          },
+          "is_conflict": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "If set to True, the IP address has either a MAC address conflict or a DHCP lease conflict detected through a network discovery."
+          },
+          "is_invalid_mac": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "This flag reflects whether the MAC address for this address is invalid."
+          },
+          "lease_state": {
+            "type": "string",
+            "description": "The lease state of the address."
+          },
+          "mac_address": {
+            "type": "string",
+            "description": "The MAC address."
+          },
           "ms_ad_user_data": {
+            "type": "string",
             "enum": [
               "msserver:aduser:data"
-            ], 
-            "type": "string", 
+            ],
             "description": "The Microsoft Active Directory user related information."
-          }, 
-          "cidr": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "The network CIDR."
-          }, 
-          "unmanaged_count": {
-            "type": "integer", 
-            "example": "integer", 
-            "description": "The number of unmanaged IP addresses as discovered by network discovery. This attribute is only valid for a Network object."
+          },
+          "names": {
+            "type": "string",
+            "description": "The DNS names. For example, if the IP address belongs to a host record, this field contains the hostname. This field supports both single and array search."
+          },
+          "network": {
+            "type": "string",
+            "description": "The network to which this address belongs, in FQDN/CIDR format."
+          },
+          "network_view": {
+            "type": "string",
+            "description": "The name of the network view."
+          },
+          "objects": {
+            "type": "string",
+            "description": "The objects associated with the IP address."
+          },
+          "reserved_port": {
+            "type": "string",
+            "description": "The reserved port for the address."
+          },
+          "status": {
+            "type": "string",
+            "description": "The current status of the address."
+          },
+          "types": {
+            "type": "string",
+            "description": "The types of associated objects. This field supports both single and array search."
+          },
+          "usage": {
+            "type": "string",
+            "description": "Indicates whether the IP address is configured for DNS or DHCP. This field supports both single and array search."
+          },
+          "username": {
+            "type": "string",
+            "description": "The name of the user who created or modified the record."
+          }
+        }
+      },
+      "ipv6address": {
+        "type": "object",
+        "properties": {
+          "conflict_types": {
+            "type": "string",
+            "enum": [
+              "MAC_ADDRESS",
+              "DHCP_RANGE",
+              "DUID",
+              "RESERVED_PORT",
+              "USED_RESERVED_PORT",
+              "DEVICE_VENDOR",
+              "DEVICE_TYPE",
+              "VM_AFFILIATION",
+              "NONE"
+            ],
+            "description": "Types of the conflict."
+          },
+          "discover_now_status": {
+            "type": "string",
+            "enum": [
+              "NONE",
+              "PENDING",
+              "RUNNING",
+              "COMPLETE",
+              "FAILED"
+            ],
+            "description": "Discover now status for this address."
+          },
+          "discovered_data": {
+            "type": "string",
+            "enum": [
+              "discoverydata"
+            ],
+            "description": "The discovered data for this address."
+          },
+          "duid": {
+            "type": "string",
+            "description": "DHCPv6 Unique Identifier (DUID) of the address object."
+          },
+          "extattrs": {
+            "type": "string",
+            "enum": [
+              "extattr"
+            ],
+            "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}."
+          },
+          "fingerprint": {
+            "type": "string",
+            "description": "DHCP fingerprint for the address."
+          },
+          "ip_address": {
+            "type": "string",
+            "description": "IPv6 addresses of the address object."
+          },
+          "is_conflict": {
+            "type": "boolean",
+            "example": "boolean",
+            "description": "IP address has either a duid conflict or a DHCP lease conflict detected through a network discovery."
+          },
+          "lease_state": {
+            "type": "string",
+            "description": "The lease state of the address."
+          },
+          "ms_ad_user_data": {
+            "type": "string",
+            "enum": [
+              "msserver:aduser:data"
+            ],
+            "description": "The Microsoft Active Directory user related information."
+          },
+          "names": {
+            "type": "string",
+            "description": "The DNS names. For example, if the IP address belongs to a host record, this field contains the hostname. This field supports both single and array search."
+          },
+          "network": {
+            "type": "string",
+            "description": "The network to which this address belongs, in FQDN/CIDR format."
+          },
+          "network_view": {
+            "type": "string",
+            "description": "The name of the network view."
+          },
+          "objects": {
+            "type": "string",
+            "description": "The objects associated with the IP address."
+          },
+          "reserved_port": {
+            "type": "string",
+            "description": "The reserved port for the address."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "USED",
+              "UNUSED"
+            ],
+            "description": "The current status of the address."
+          },
+          "types": {
+            "type": "string",
+            "description": "The types of associated objects. This field supports both single and array search."
+          },
+          "usage": {
+            "type": "string",
+            "description": "Indicates whether the IP address is configured for DNS or DHCP. This field supports both single and array search."
           }
         }
       }
     }
-  }, 
-  "openapi": "3.0.0"
+  }
 }
